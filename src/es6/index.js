@@ -51,13 +51,74 @@ console.log(education)
 }
 console.log(globalVar)
 
-
-const a ='b'//No change
+const a = 'b' //No change
 a = 'a' //error
-var name1='juan'
-var age1=20
-var obj={
-  name:name1,
-  age:age1
+var name1 = 'juan'
+var age1 = 20
+var obj = {
+  name: name1,
+  age: age1,
 }
-var obj={name1,age1}
+var obj = { name1, age1 }
+
+const names = [
+  { name: 'Oscar', age: 32 },
+  { name: 'Juan', age: 20 },
+]
+let listOfNames = names.map(function (item) {
+  console.log(item.name)
+})
+let listOfNames2 = names.map((item) => console.log(item.name))
+let listOfNames3 = (name, age, country) => {
+  console.log()
+}
+let listOfname4 = (name) => {}
+const square = (num) => num * num
+
+const helloPromise = () => {
+  return new Promise((resolve, reject) => {
+    if (false) {
+      resolve('Hey!')
+    } else {
+      reject('Ups!')
+    }
+  })
+}
+
+helloPromise()
+  .then((response) => console.log(response))
+  .then((response) => console.log('q tal?'))
+  .catch((error) => console.log(error))
+
+class calculator {
+  constructor() {
+    this.valueA = 0
+    this.valueB = 0
+  }
+  sum(valueA, valueB) {
+    this.valueA = valueA
+    this.valueB = valueB
+    return this.valueA + this.valueB
+  }
+}
+const calc= new calculator()
+console.log(calc.sum(2,2))
+
+import hello  from `./module`
+hello()
+
+const hello=require('./module')
+console.log(hello())
+
+function* helloWorld(){
+  if(true){
+    yield `hello, `
+  }
+  if(true){
+    yield `World`
+  }
+}
+const generator=helloWorld();
+console.log(generator.next().value)
+console.log(generator.next().value)
+console.log(generator.next().value)
